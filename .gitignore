@@ -1,0 +1,56 @@
+# Ambientes virtuais
+venv/
+.venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos compilados
+*.so
+*.pyd
+*.dll
+
+# Arquivos de distribuição
+build/
+dist/
+*.egg-info/
+
+# Configurações do VS Code
+.vscode/
+
+# Configurações do PyCharm
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Testes
+.pytest_cache/
+
+# Cobertura de testes
+.coverage
+htmlcov/
+
+# Arquivos de backup
+*.bak
+*.swp
+
+# Variáveis de ambiente
+.env
+
+# Cache do mypy
+.mypy_cache/
+
+# Cache do Ruff
+.ruff_cache/
