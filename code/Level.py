@@ -59,6 +59,7 @@ class Level:
                         shift = self.player.rect.centerx - WIN_WIDTH // 2
                         self.player.rect.centerx = WIN_WIDTH // 2
                         self.camera_x += shift
+                        self.background.update(shift)
                         for sprite in self.all_sprites:
                             if sprite != self.player:
                                 sprite.rect.x -= shift

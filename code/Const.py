@@ -37,3 +37,11 @@ PLAYER_START_Y = GROUND_Y - 72  # Altura do player (72) para ficar em cima do ch
 # Regras do Jogo 
 SCORE_TO_WIN = 10  # Número X de frutas para vencer 
 SPAWN_DELAY = 1500  # Tempo em milissegundos para novos spawns
+
+
+PARALLAX_SPEED = {
+    'Level1Bg0': 0.0,
+    'Level1Bg1': 0.3,
+    'Level1Bg2': 0.5,
+    'Level1Bg3': 0.8,
+}
