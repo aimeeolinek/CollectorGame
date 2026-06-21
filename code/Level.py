@@ -3,7 +3,7 @@ from code.Player import Player
 from code.Background import Background
 from code.EntityFactory import EntityFactory
 from code.Score import Score
-from code.Const import WIN_WIDTH, WIN_HEIGHT
+from code.Const import WIN_WIDTH, WIN_HEIGHT, LEVEL_WIDTH
 
 class Level:
     def __init__(self, window, name, option, player_score):
@@ -21,16 +21,18 @@ class Level:
         self.factory = EntityFactory()
         self.state = "playing"
         self.build_level()
+        self.camera_x = 0
 
     def build_level(self):
         layout = [
-            ("obstacles", (180, 240)),
-            ("collectables", (250, 200)),
-            ("collectables", (320, 170)),
-            ("obstacles", (380, 240)),
-            ("collectables", (450, 200)),
-            ("flags", (520, 220))
-        ]
+        ("collectables", (300, 220)),
+        ("obstacles", (500, 240)),
+        ("collectables", (700, 220)),
+        ("obstacles", (900, 240)),
+        ("collectables", (1200, 220)),
+        ("obstacles", (1500, 240)),
+        ("flags", (1800, 220))
+    ]
         for entity_type, pos in layout:
             entity = self.factory.create(entity_type, pos)
             if entity_type == "obstacles":
@@ -51,6 +53,15 @@ class Level:
 
             if self.state == "playing":
                 self.all_sprites.update()
+                if self.player.rect.centerx > WIN_WIDTH // 2:
+                    max_camera = LEVEL_WIDTH - WIN_WIDTH
+                    if self.camera_x < max_camera:
+                        shift = self.player.rect.centerx - WIN_WIDTH // 2
+                        self.player.rect.centerx = WIN_WIDTH // 2
+                        self.camera_x += shift
+                        for sprite in self.all_sprites:
+                            if sprite != self.player:
+                                sprite.rect.x -= shift
 
                 # Colisões
                 hits = pygame.sprite.spritecollide(self.player, self.collectables, True)
@@ -63,6 +74,10 @@ class Level:
                 if pygame.sprite.spritecollideany(self.player, self.flags):
                     self.show_victory(player_score)
                     return True
+                if self.camera_x >= LEVEL_WIDTH - WIN_WIDTH:
+                    if self.player.rect.right >= WIN_WIDTH:
+                        self.show_victory(player_score)
+                        return True
 
                 # Desenho
                 self.background.draw(self.window)

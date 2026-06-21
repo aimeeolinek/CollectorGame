@@ -4,6 +4,7 @@ import pygame
 WIN_WIDTH = 576 
 WIN_HEIGHT = 324 
 FPS = 60 
+LEVEL_WIDTH = 2000
 
 GROUND_Y = WIN_HEIGHT - 50
 
