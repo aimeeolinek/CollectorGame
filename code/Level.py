@@ -72,7 +72,6 @@ class Level:
                     self.state = "game_over"
 
                 if pygame.sprite.spritecollideany(self.player, self.flags):
-                    print("Colidiu com a bandeira")
                     self.show_victory(player_score)
                     return True
                 if self.camera_x >= LEVEL_WIDTH - WIN_WIDTH:
