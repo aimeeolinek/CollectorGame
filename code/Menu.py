@@ -16,7 +16,7 @@ class Menu:
 
     def run(self):
         menu_option = 0
-        #pygame.mixer_music.load('./asset/Menu.mp3')
+        #pygame.mixer_music.load('./asset/MusicHappy.mp3')
         #pygame.mixer_music.play(-1)
         while True:
             # DRAW IMAGES
@@ -26,7 +26,7 @@ class Menu:
             self.menu_text(14, "Colete flores e alcance a bandeira! Só cuidado com as pedras!",COLOR_BLACK,((WIN_WIDTH / 2), 160))
             self.menu_text2(12, " press ENTER", COLOR_BLACK, ((WIN_WIDTH / 2), 180))
             self.menu_text2(14,"SETA ESQ/DIR: mover | ESPACO: pular",COLOR_BLACK,((WIN_WIDTH / 2), 295))
-
+            self.menu_text2(12,"Desenvolvido por Aimee Olinek",COLOR_BLACK,((WIN_WIDTH / 2), 315))
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
                     self.menu_text(20, MENU_OPTION[i], COLOR_RED, ((WIN_WIDTH / 2), 200 + 30 * i))
