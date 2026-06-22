@@ -1,11 +1,8 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_BLACK, WIN_WIDTH, COLOR_RED, MENU_OPTION
+from code.Const import COLOR_BLACK, WIN_WIDTH, COLOR_RED_1, MENU_OPTION
 
 
 class Menu:
@@ -29,7 +26,7 @@ class Menu:
             self.menu_text2(12,"Desenvolvido por Aimee Olinek",COLOR_BLACK,((WIN_WIDTH / 2), 315))
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_RED, ((WIN_WIDTH / 2), 200 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_RED_1, ((WIN_WIDTH / 2), 200 + 30 * i))
                 else:
                     self.menu_text(20, MENU_OPTION[i], COLOR_BLACK, ((WIN_WIDTH / 2), 200 + 30 * i))
             pygame.display.flip()

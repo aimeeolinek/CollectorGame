@@ -1,3 +1,5 @@
+import pygame
+
 from code.Entity import Entity
 
 class Obstacle(Entity):

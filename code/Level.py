@@ -1,9 +1,12 @@
 import pygame
+
 from code.Player import Player
 from code.Background import Background
 from code.EntityFactory import EntityFactory
 from code.Score import Score
-from code.Const import WIN_WIDTH, WIN_HEIGHT, LEVEL_WIDTH
+from code.Const import (COLOR_YELLOW, WIN_WIDTH, WIN_HEIGHT,
+                    LEVEL_WIDTH, FPS, COLOR_WHITE, COLOR_RED_2, 
+                    DARK_GREEN, COLOR_BLACK)
 
 class Level:
     def __init__(self, window, name, option, player_score):
@@ -11,17 +14,23 @@ class Level:
         self.name = name
         self.option = option
         self.player_score = player_score
+
         self.obstacles = pygame.sprite.Group()
         self.collectables = pygame.sprite.Group()
         self.flags = pygame.sprite.Group()
+
         self.all_sprites = pygame.sprite.Group()
+
         self.player = Player()
         self.all_sprites.add(self.player)
+
         self.background = Background()
         self.factory = EntityFactory()
+
         self.state = "playing"
-        self.build_level()
         self.camera_x = 0
+
+        self.build_level()
 
     def build_level(self):
         layout = [
@@ -46,7 +55,7 @@ class Level:
     def run(self, player_score):
         clock = pygame.time.Clock()
         while True:
-            clock.tick(60)
+            clock.tick(FPS)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return False
@@ -75,25 +84,25 @@ class Level:
                 if pygame.sprite.spritecollideany(self.player, self.flags):
                     self.show_victory(player_score)
                     return True
-                if self.camera_x >= LEVEL_WIDTH - WIN_WIDTH:
-                    if self.player.rect.right >= WIN_WIDTH:
-                        self.show_victory(player_score)
-                        return True
+                #if self.camera_x >= LEVEL_WIDTH - WIN_WIDTH:
+                   # if self.player.rect.right >= WIN_WIDTH:
+                       # self.show_victory(player_score)
+                       # return True
 
                 # Desenho
                 self.background.draw(self.window)
                 self.all_sprites.draw(self.window)
 
                 font = pygame.font.SysFont("Comic Sans MS", 36)
-                score_text = font.render(f"Score: {player_score[0]}", True, (255, 255, 255))
+                score_text = font.render(f"Score: {player_score[0]}", True, COLOR_WHITE)
                 self.window.blit(score_text, (10, 10))
                 pygame.display.flip()
 
             elif self.state == "game_over":
-                self.window.fill((0, 0, 0))
+                self.window.fill(COLOR_BLACK)
                 font = pygame.font.SysFont(
                     "Comic Sans MS", 48)
-                msg = font.render("GAME OVER", True, (255, 0, 0))
+                msg = font.render("GAME OVER", True, COLOR_RED_2)
                 self.window.blit(msg, msg.get_rect(
                         center=(WIN_WIDTH//2, WIN_HEIGHT//2)
                     ))
@@ -104,22 +113,19 @@ class Level:
                 return False
 
     def show_victory(self, player_score):
-        self.window.fill((0, 120, 0))
+        self.window.fill(DARK_GREEN)
 
-        font_title = pygame.font.SysFont(
-            "Comic Sans MS", 48)
-        font_score = pygame.font.SysFont(
-            "Comic Sans MS", 32)
-        title = font_title.render(
-            "VOCE VENCEU!", True, (255, 255, 255))
+        font_title = pygame.font.SysFont("Comic Sans MS", 48)
+        font_score = pygame.font.SysFont("Comic Sans MS", 32)
 
-        score = font_score.render(
-            f"Flores coletadas: {player_score[0]}",
-            True,
-            (255, 255, 0))
+        title = font_title.render("VOCE VENCEU!", True, COLOR_WHITE)
+        score = font_score.render(f"Flores coletadas: {player_score[0]}", True, COLOR_YELLOW)
+        info = font_score.render("Parabéns!", True, COLOR_WHITE)
 
         self.window.blit(title, title.get_rect(center=(WIN_WIDTH//2, 120)))
         self.window.blit(score, score.get_rect(center=(WIN_WIDTH//2, 190)))
+        self.window.blit(info, info.get_rect(center=(WIN_WIDTH//2, 240)))
+        
         pygame.display.flip()
         pygame.time.wait(3000)
 

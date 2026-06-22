@@ -1,7 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import sys
+
 import pygame
 
 from code.Const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
@@ -14,17 +12,11 @@ class Game:
 
     def __init__(self):
         pygame.init()
-
-        self.window = pygame.display.set_mode(
-            (WIN_WIDTH, WIN_HEIGHT)
-        )
-
+        self.window = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         pygame.display.set_caption("Flower Collector")
 
     def run(self):
-
         while True:
-
             score = Score(self.window)
             menu = Menu(self.window)
 
@@ -32,16 +24,9 @@ class Game:
 
             # START GAME
             if menu_return == MENU_OPTION[0]:
-
                 player_score = [0]
 
-                level = Level(
-                    self.window,
-                    "Level1",
-                    menu_return,
-                    player_score
-                )
-
+                level = Level(self.window, "Level1", menu_return, player_score)
                 level_completed = level.run(player_score)
 
                 if level_completed:

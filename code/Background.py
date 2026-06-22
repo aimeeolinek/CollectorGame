@@ -1,5 +1,6 @@
 import pygame
-from code.Const import WIN_WIDTH, WIN_HEIGHT, PARALLAX_SPEED
+
+from code.Const import WIN_WIDTH, PARALLAX_SPEED
 
 class Background:
     def __init__(self):
