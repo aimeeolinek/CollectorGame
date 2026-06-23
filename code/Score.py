@@ -1,7 +1,13 @@
 import pygame
 
 from code.Const import WIN_WIDTH, COLOR_WHITE, COLOR_YELLOW, COLOR_BLACK
-
+"""
+    Classe que representa o placar do jogo.
+    Responsável por exibir o melhor score alcançado pelo jogador 
+    e permitir que ele retorne
+    à tela principal do jogo.
+    
+"""
 class Score:
     best_score = 0
 

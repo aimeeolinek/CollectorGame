@@ -1,7 +1,11 @@
 from code.Collectable import Collectable
 from code.Obstacle import Obstacle
 from code.Flag import Flag
-
+"""
+    Classe que representa a fábrica de entidades do jogo.
+    Responsável por criar instâncias de diferentes tipos de entidades,
+    como coletáveis, obstáculos e bandeiras, com base no tipo fornecido.
+"""
 class EntityFactory:
     @staticmethod
     def create(entity_type, pos):

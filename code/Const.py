@@ -1,3 +1,10 @@
+"""
+    Constantes do jogo.
+    Contém configurações da janela, dimensões do cenário, 
+    parâmetros do jogador, física do jogo, opções do menu e cores.
+    
+"""
+
 # Configurações da Janela 
 WIN_WIDTH = 576 
 WIN_HEIGHT = 324 

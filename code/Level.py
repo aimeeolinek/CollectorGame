@@ -7,7 +7,11 @@ from code.Score import Score
 from code.Const import (COLOR_YELLOW, WIN_WIDTH, WIN_HEIGHT,
                     LEVEL_WIDTH, FPS, COLOR_WHITE, COLOR_RED_2, 
                     DARK_GREEN, COLOR_BLACK)
-
+"""
+    Classe que representa o nível do jogo.
+    Responsável por gerenciar a lógica do jogo, incluindo a atualização
+    dos elementos, a detecção de colisões e a exibição do placar.
+"""
 class Level:
     def __init__(self, window, name, option, player_score):
         self.window = window

@@ -7,7 +7,11 @@ from code.Level import Level
 from code.Menu import Menu
 from code.Score import Score
 
-
+"""
+    Classe que representa o jogo.
+    Responsável por gerenciar o fluxo principal do jogo, incluindo a inicialização,
+    a execução do menu, a transição entre níveis e a exibição do placar.
+"""
 class Game:
 
     def __init__(self):

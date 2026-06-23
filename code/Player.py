@@ -2,7 +2,12 @@ import pygame
 
 from code.Entity import Entity
 from code.Const import GRAVITY, JUMP_FORCE, PLAYER_START_X, PLAYER_START_Y, WIN_WIDTH, GROUND_Y
-
+"""
+    Classe que representa o personagem jogador no jogo. 
+    Herda da classe Entity e lida com o comportamento específico do jogador, 
+    como movimento, salto e animação.
+    
+"""
 class Player(Entity):
     def __init__(self, pos=(PLAYER_START_X, PLAYER_START_Y)):
         super().__init__("asset/Player_Walk_a.png", pos, (64,72))

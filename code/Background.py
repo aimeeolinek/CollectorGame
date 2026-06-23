@@ -2,6 +2,12 @@ import pygame
 
 from code.Const import WIN_WIDTH, PARALLAX_SPEED
 
+"""
+    Classe que representa o fundo do jogo.
+    Responsável por gerenciar a exibição do fundo, incluindo múltiplas camadas
+    e o efeito de paralaxe, que cria uma sensação de profundidade ao mover o fundo
+    em relação ao jogador.
+"""
 class Background:
     def __init__(self):
         # Carrega cada layer

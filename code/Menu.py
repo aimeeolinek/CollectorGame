@@ -4,7 +4,12 @@ from pygame.font import Font
 
 from code.Const import COLOR_BLACK, WIN_WIDTH, COLOR_RED_1, MENU_OPTION
 
-
+"""
+    Classe que representa o menu do jogo.
+    Responsável por exibir a tela inicial do jogo, permitindo que o jogador
+    escolha entre iniciar o jogo, consultar score ou sair.
+    
+"""
 class Menu:
     def __init__(self, window):
         self.window = window
