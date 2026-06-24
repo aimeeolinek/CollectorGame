@@ -1,8 +1,8 @@
 """
-    Constantes do jogo.
-    Contém configurações da janela, dimensões do cenário, 
-    parâmetros do jogador, física do jogo, opções do menu e cores.
-    
+Constantes utilizadas em todo o jogo.
+
+Contém configurações da janela, cenário, jogador,
+física, menu, cores e parallax.
 """
 
 # Configurações da Janela 
@@ -33,7 +33,7 @@ COLOR_BLACK = (0, 0, 0)
 COLOR_RED_1 = (220, 20, 60)
 COLOR_RED_2 = (255, 0, 0) 
 COLOR_YELLOW = (255, 215, 0)
-DARK_GREEN = (0, 120, 0)
+COLOR_DARK_GREEN = (0, 120, 0)
 
 # Parallax
 PARALLAX_SPEED = {

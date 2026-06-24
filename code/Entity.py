@@ -1,12 +1,15 @@
 import pygame
 
 from abc import ABC, abstractmethod
-"""
-    Classe abstrata que representa uma entidade no jogo.
-    Herda de pygame.sprite.Sprite e define a interface para todas as entidades do jogo,
-    incluindo a exibição da imagem, a posição e o tamanho.
-"""
+
 class Entity(pygame.sprite.Sprite, ABC):
+    """
+    Classe abstrata base para as entidades do jogo.
+
+    Fornece os atributos e comportamentos comuns, como imagem,
+    posição e área de colisão, além de definir a interface que
+    deve ser implementada pelas classes derivadas.
+    """
     def __init__(self, image_path, pos, size=None):
         super().__init__()
         self.image = pygame.image.load(image_path).convert_alpha()
@@ -16,4 +19,8 @@ class Entity(pygame.sprite.Sprite, ABC):
 
     @abstractmethod
     def update(self):
+        """
+        Atualiza o estado da entidade.
+        Deve ser implementado pelas subclasses.
+        """
         pass

@@ -2,8 +2,5 @@
 - Background da fase do jogo: CraftPix
 - Sprites do Player, Rock e Flag: Kenney
 - Sprite Flower: Aimeê Isabela Olinek
-- Música: Pixabay - Amplify_Music
-- Sound Game Over: Sound Effect by Alphix - Pixabay
-- Sound Win: Sound Effect by freesound_community from Pixabay
 
 - Código desenvolvido por Aimeê Isabela Olinek.

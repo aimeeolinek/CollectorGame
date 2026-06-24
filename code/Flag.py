@@ -1,13 +1,17 @@
 from code.Entity import Entity
 
-"""
-    Classe que representa a bandeira no jogo.
-    Responsável por gerenciar a lógica da bandeira, 
-    incluindo a exibição da imagem e a detecção de colisão com o jogador.
-"""
 class Flag(Entity):
+    """
+    Representa a bandeira que marca o objetivo da fase.
+
+    Herda da classe Entity e define a aparência e a posição
+    do ponto de chegada do jogador.
+    """
     def __init__(self, pos):
         super().__init__("asset/Flag.png", pos, (64, 64))
 
     def update(self):
-        pass  # Bandeira é estática
+        """
+        Não realiza atualizações, pois a bandeira é estática.
+        """
+        pass  
