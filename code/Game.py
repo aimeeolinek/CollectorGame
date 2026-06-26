@@ -6,6 +6,7 @@ from code.Const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
 from code.Level import Level
 from code.Menu import Menu
 from code.Score import Score
+from code.SoundManager import SoundManager
 
 class Game:
     """
@@ -17,7 +18,9 @@ class Game:
         # Inicializa o pygame e desenha a janela do jogo.
         pygame.init() 
         self.window = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+        self.sound = SoundManager()
         pygame.display.set_caption("Flower Collector")
+
 
     def run(self):
         """
@@ -30,8 +33,9 @@ class Game:
         while True:
             score = Score(self.window)
             menu = Menu(self.window)
-
+            self.sound.play_menu_music()
             menu_return = menu.run()
+            
 
             # START GAME
             if menu_return == MENU_OPTION[0]:
@@ -39,7 +43,7 @@ class Game:
 
                 level = Level(self.window, "Level1", menu_return, player_score)
                 level_completed = level.run(player_score)
-
+                self.sound.play_level_music()
                 if level_completed:
                     score.save(menu_return, player_score)
 

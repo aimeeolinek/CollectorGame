@@ -6,6 +6,7 @@ from code.EntityFactory import EntityFactory
 from code.Const import (COLOR_YELLOW, WIN_WIDTH, WIN_HEIGHT,
                     LEVEL_WIDTH, FPS, COLOR_WHITE, COLOR_RED_2, 
                     COLOR_DARK_GREEN, COLOR_BLACK)
+from code.SoundManager import SoundManager
 
 class Level:
     """
@@ -38,7 +39,7 @@ class Level:
         # Define o estado inicial do nível como "playing" e a posição da câmera
         self.state = "playing"
         self.camera_x = 0
-
+        self.sound = SoundManager()
         self.build_level()
 
     def build_level(self):
@@ -99,6 +100,7 @@ class Level:
                 hits = pygame.sprite.spritecollide(self.player, self.collectables, True)
                 for _ in hits:
                     player_score[0] += 1
+                    self.sound.play_collect()
                 
                 if pygame.sprite.spritecollideany(self.player, self.obstacles):
                     self.state = "game_over"
@@ -130,7 +132,8 @@ class Level:
                 self.window.blit(msg_2, msg_2.get_rect(
                         center=(WIN_WIDTH//2, WIN_HEIGHT//2 + 60)
                     ))
-
+                self.sound.stop_music()
+                self.sound.play_game_over()
                 pygame.display.flip()
                 pygame.time.wait(2000)
 
@@ -154,6 +157,8 @@ class Level:
         self.window.blit(score, score.get_rect(center=(WIN_WIDTH//2, 190)))
         self.window.blit(info, info.get_rect(center=(WIN_WIDTH//2, 240)))
         
+        self.sound.stop_music()
+        self.sound.play_victory()
         pygame.display.flip()
         pygame.time.wait(3000) 
 
