@@ -5,7 +5,7 @@ from code.Background import Background
 from code.EntityFactory import EntityFactory
 from code.Const import (COLOR_YELLOW, WIN_WIDTH, WIN_HEIGHT,
                     LEVEL_WIDTH, FPS, COLOR_WHITE, COLOR_RED_2, 
-                    COLOR_DARK_GREEN, COLOR_BLACK)
+                    COLOR_GREEN, COLOR_BLACK, COLOR_GRAY)
 from code.SoundManager import SoundManager
 
 class Level:
@@ -48,14 +48,28 @@ class Level:
         com base em posições predefinidas.
         """
         layout = [
-        ("collectables", (300, 220)),
-        ("obstacles", (500, 240)),
-        ("collectables", (700, 220)),
-        ("obstacles", (900, 240)),
-        ("collectables", (1200, 220)),
-        ("obstacles", (1500, 240)),
-        ("flags", (1800, 220))
-    ]
+            
+            ("collectables", (300, 220)),
+            ("obstacles", (500, 240)),
+            ("collectables", (700, 220)),
+            ("obstacles", (900, 240)),
+            ("collectables", (1100, 220)),
+            ("collectables", (1200, 220)),
+            ("collectables", (1300, 220)),
+            ("obstacles", (1500, 240)),
+            ("collectables", (1700, 220)),
+            ("obstacles", (1900, 240)),
+            ("collectables", (2000, 220)),
+            ("obstacles", (2100, 240)),
+            ("collectables", (2200, 220)),
+            ("collectables", (2300, 220)),
+            ("collectables", (2400, 220)),
+            ("obstacles", (2500, 240)),
+            ("collectables", (2650, 220)),
+            ("collectables", (2750, 220)),
+            ("flags", (2910, 220))]
+        
+        
         # Cria entidades com base no layout definido e as adiciona aos grupos correspondentes
         for entity_type, pos in layout:
             entity = self.factory.create(entity_type, pos)
@@ -115,7 +129,7 @@ class Level:
                 self.all_sprites.draw(self.window)
                 
                 font = pygame.font.SysFont("Comic Sans MS", 36)
-                score_text = font.render(f"Score: {player_score[0]}", True, COLOR_WHITE)
+                score_text = font.render(f"Score: {player_score[0]}", True, COLOR_GRAY)
                 self.window.blit(score_text, (10, 10))
                 pygame.display.flip()
 
@@ -144,7 +158,7 @@ class Level:
         Exibe a tela de vitória e a quantidade de flores
         coletadas pelo jogador.
         """
-        self.window.fill(COLOR_DARK_GREEN)
+        self.window.fill(COLOR_GREEN)
 
         font_title = pygame.font.SysFont("Comic Sans MS", 48)
         font_score = pygame.font.SysFont("Comic Sans MS", 32)

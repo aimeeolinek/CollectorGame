@@ -2,5 +2,6 @@
 - Background da fase do jogo: CraftPix
 - Sprites do Player, Rock e Flag: Kenney
 - Sprite Flower: Aimeê Isabela Olinek
-
+- Sounds: Pixabay
 - Código desenvolvido por Aimeê Isabela Olinek.
+
